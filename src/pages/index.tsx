@@ -1,24 +1,32 @@
-import { styled } from "@/styles"
+import { HomeWrapper, Product } from "@/styles/home";
+import Image from "next/image";
 
-const Button = styled("button", {
-  backgroundColor: "$green500", 
-  borderRadius: 4, 
-  border: 0,
-  padding: '4px 8px',
-
-  span: {
-    fontWeight: 'bold',
-  },
-
-  '&:hover': {
-    backgroundColor: 'green',
-  }
-})
+import camiseta1 from '../assets/camisetas/1.png'
+import camiseta2 from '../assets/camisetas/2.png'
+import camiseta3 from '../assets/camisetas/3.png'
 
 export default function Home() {
   return (
     <>
-      <Button><span>Alouu </span>Enviar</Button>
+      <HomeWrapper>
+        <Product>
+          <Image src={camiseta1} width={520} height={480} alt="" />
+
+          <footer>
+            <strong>Camiseta X</strong>
+            <span>R$ 79,90</span>
+          </footer>
+        </Product>
+
+        <Product>
+          <Image src={camiseta2} width={520} height={480} alt="" />
+
+          <footer>
+            <strong>Camiseta Y</strong>
+            <span>R$ 79,90</span>
+          </footer>
+        </Product>
+      </HomeWrapper>
     </>
   )
 }

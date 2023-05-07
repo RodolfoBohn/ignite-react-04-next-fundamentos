@@ -13,6 +13,13 @@ export const {config, styled, css, globalCss, keyframes, getCssText, theme, crea
 
       green500: '#00875f',
       green300: '#00b37e',
+    },
+
+    fontSizes: {
+      md: '1.125rem',
+      lg: '1.25rem',
+      xl: '1.5rem',
+      '2xl': '2rem',
     }
   }
 })
