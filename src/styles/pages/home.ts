@@ -1,4 +1,5 @@
-import { styled } from ".";
+import { styled } from "..";
+import Link from "next/link";
 
 export const HomeWrapper = styled('main', {
   display: 'flex',
@@ -9,7 +10,7 @@ export const HomeWrapper = styled('main', {
  minHeight: 656,
 })
 
-export const Product = styled('a', {
+export const Product = styled(Link, {
   background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
   borderRadius: 8, 
   // padding: '0.25rem',
@@ -38,6 +39,7 @@ export const Product = styled('a', {
     justifyContent: 'space-between',
 
     background: 'rgba(0,0,0,0.6)',
+    color: '$gray300',
 
     transform: 'translateY(110%)',
     opacity: 0,
