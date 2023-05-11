@@ -30,6 +30,10 @@ export default function Home({products}: HomeProps) {
       <HomeWrapper ref={slidesref} className="keen-slider">
         {products.map(product => {
           return (
+
+            // Com prefetch false ele não faz o pré carregamento da página referente ao link, somente quando no hover do link
+            // <Product className='keen-slider__slide' key={product.id} href={`/product/${product.id}`} prefetch={false}>
+
             <Product className='keen-slider__slide' key={product.id} href={`/product/${product.id}`}>
               <Image src={product.imageUrl} width={520} height={480} alt="" />
 
