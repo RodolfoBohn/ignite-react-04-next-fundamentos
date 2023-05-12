@@ -7,6 +7,7 @@ import {stripe} from "../lib/stripe";
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
 import Stripe from "stripe";
+import Head from "next/head";
 
 interface HomeProps {
   products: {
@@ -27,6 +28,9 @@ export default function Home({products}: HomeProps) {
   })
   return (
     <>
+      <Head>
+        <title>Ignite Shop</title>
+      </Head>
       <HomeWrapper ref={slidesref} className="keen-slider">
         {products.map(product => {
           return (

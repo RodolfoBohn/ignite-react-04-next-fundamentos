@@ -3,7 +3,7 @@ import { stripe } from "@/lib/stripe";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const price = req.body.priceId
-  const successUrl = `${process.env.APP_URL}/success`
+  const successUrl = `${process.env.APP_URL}/success?session_id={CHECKOUT_SESSION_ID}`
   const cancelUrl = `${process.env.APP_URL}/`
 
   if(!price) {
