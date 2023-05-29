@@ -1,3 +1,4 @@
+import { useCartContext } from "@/context/cart-context";
 import { stripe } from "@/lib/stripe";
 import {
   ImageContainer,
@@ -25,27 +26,16 @@ interface ProductProps {
 }
 
 export default function Product({ product }: ProductProps) {
-  const [isLoading, setIsLoading] = useState(false)
-  const {isFallback} = useRouter()
+  const {isFallback, push } = useRouter()
+  const {addProductToList} = useCartContext()
 
   if(isFallback) {
     return <p>Carregando...</p>
   }
 
-  async function handleBuyButton() {
-    try {
-      setIsLoading(true)
-      const response = await axios.post('/api/checkout', {
-        priceId: product.priceId
-      })
-
-        const { checkoutUrl } = response.data
-        window.location.href = checkoutUrl
-      } catch (error) {
-      //ferramentas de observabilidade (datalog / sentry)
-      setIsLoading(false)
-      console.log("ERRO!")
-    }
+  function handleAddProduct() {
+    addProductToList(product)
+    push('/')
   }
 
   return (
@@ -65,8 +55,8 @@ export default function Product({ product }: ProductProps) {
 
           <p>{product.description}</p>
 
-          <button onClick={handleBuyButton} disabled={isLoading}>
-              Comprar agora
+          <button onClick={handleAddProduct}>
+              Colocar na sacola
           </button>
         </ProductDetails>
       </ProductContainer>

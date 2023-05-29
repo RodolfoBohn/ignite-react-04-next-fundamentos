@@ -45,15 +45,34 @@ export const Product = styled(Link, {
     opacity: 0,
     transition: 'all 0.2s ease-in-out',
 
-    strong: {
-      fontSize: '$lg',
+    div: {
+      display: 'flex', 
+      flexDirection: 'column', 
+
+      strong: {
+        fontSize: '$lg',
+      },
+  
+      span: {
+        fontSize: '$xl',
+        fontWeight: 'bold',
+        color: '$green300',
+      },
     },
 
-    span: {
-      fontSize: '$xl',
-      fontWeight: 'bold',
-      color: '$green300',
-    },
+    button: {
+      all: 'unset',
+      padding: '0.75rem',
+      borderRadius: 6,
+      backgroundColor: '$green500',
+      lineHeight: 0,
+      color: '$white',
+
+
+      '&:hover': {
+        background: '$green300',
+      }
+    }
   },
 
   '&:hover': {
